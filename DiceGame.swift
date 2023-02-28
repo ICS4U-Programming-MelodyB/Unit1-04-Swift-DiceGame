@@ -23,13 +23,7 @@ loop: while true {
     let userString = readLine()
 
     // Check if guess is an integer
-    // Returns -23847125624345235 if not an integer
-    let userInt = Int(userString!) ?? -23847125624345235
-
-    if userInt == -23847125624345235 {
-        // Error message if guess isn't an integer
-        print("Please enter a valid integer.")
-    } else {
+    if let userInt = Int(userString!) {
         // Check if guess is within range
         if userInt >= MAX || userInt < MIN {
             // Error message if guess isn't within range
@@ -62,5 +56,8 @@ loop: while true {
                 }
             }
         }
+    } else {
+        // Error message if guess isn't an integer
+        print("Please enter a valid integer.")
     }
 }
